@@ -11,6 +11,7 @@ Paths are root-relative (`/css/...`, `/images/...`), so serve the folder rather 
 
 ## Structure
 
+- `contact/`: parts-quote form, handled by Netlify Forms (form name `parts-quote`), which redirects to `thanks/` (noindex).
 - `index.html`, `<page>/index.html`: one folder per URL, so `/parts-repair` keeps working on any static host (Netlify, Vercel, Cloudflare Pages, S3).
 - `css/gearwell.css`: the original Webflow stylesheet, with asset URLs pointing at local files.
 - `js/site.js`: replaces the Webflow runtime (scroll-in animations, mobile nav, dropdowns, hero slider, tabs).
@@ -21,7 +22,7 @@ Paths are root-relative (`/css/...`, `/images/...`), so serve the folder rather 
 ## Open items
 
 - **Typography (edited after migration):** the whole site uses Inter (Google Fonts, weights 300–900). Headings that used Akira Expanded now use Inter at their original weight (700/800) with `text-transform: uppercase`, because Akira only has capitals. The Akira font files were removed. Re-running `migrate.py` brings Akira back.
-- Most calls to action link to `#` on the live Webflow site too, and still need real destinations or forms. These include every "Contact" link, "Get Parts Quote Now", "Find Your Parts", "Get Emergency Parts Quote", "Learn Our Process", "Learn Why Gearwell" and "Request Technical Specifications". There are no forms on the site yet.
+- **CTAs:** every button now goes to a real page. Quote and contact buttons open `/contact/`, some with `?request=emergency|planned|exchange|technical` to preselect the request type.
 - **Resources removed:** there are no blog posts or resources yet, so the Resources page, its six placeholder articles, and the Resources links in the top nav and footer were removed. Re-running `migrate.py` would bring them back.
 - **Logo:** the only logo file is the 413×63 PNG from Webflow (white wordmark, grey gear). It's 1x, so it looks soft on retina screens. Get the master logo files (SVG plus 2x/3x PNG, every colorway) from the designer. The brand guide PDF contains only small gear renders, with the largest at 296px.
 - **SEO tags (edited after migration):** Home, Parts & Repair, Why Gearwell and Our Process use the page title and meta description from their content docs, also copied to the og: and twitter: tags. Resources, Contact and the articles have no doc copy yet, so they keep their Webflow titles.

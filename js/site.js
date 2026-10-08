@@ -164,6 +164,15 @@
     go(0);
   });
 
+  // ---- Quote form: preselect the request type from ?request=emergency|planned|exchange|technical ----
+  var requestSelect = document.querySelector('form[name="parts-quote"] select[name="request"]');
+  if (requestSelect) {
+    var wanted = new URLSearchParams(location.search).get("request");
+    if (wanted && requestSelect.querySelector('option[value="' + wanted.replace(/[^a-z]/g, "") + '"]')) {
+      requestSelect.value = wanted;
+    }
+  }
+
   // ---- Tabs ----
   document.querySelectorAll(".w-tabs").forEach(function (tabs) {
     var links = tabs.querySelectorAll(".w-tab-link");
