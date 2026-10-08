@@ -26,3 +26,10 @@ Paths are root-relative (`/css/...`, `/images/...`), so serve the folder rather 
 - **Logo:** the only logo file is the 413×63 PNG from Webflow (white wordmark, grey gear). It's 1x, so it looks soft on retina screens. Get the master logo files (SVG plus 2x/3x PNG, every colorway) from the designer. The brand guide PDF contains only small gear renders, with the largest at 296px.
 - **SEO tags (edited after migration):** Home, Parts & Repair, Why Gearwell and Our Process use the page title and meta description from their content docs, also copied to the og: and twitter: tags. Resources, Contact and the articles have no doc copy yet, so they keep their Webflow titles.
 - **Copy (edited after migration):** all four pages were reworded for the buyer audience using `.claude/agents/gearwell-copy-editor.md`. No facts were changed. Every page's FAQ now comes from its own content doc: Home gained a new FAQ section, the Why Gearwell FAQ was replaced with that page's own questions, and the "Answer goes here." placeholders were filled in.
+- **SEO (initial pass):**
+  - Canonical URLs, Open Graph and Twitter tags, and Organization, WebPage and FAQPage structured data are on every page.
+  - `robots.txt` and `sitemap.xml` are included. They assume the production domain is `https://www.gearwell.com`; if that changes, update the canonical tags, the sitemap and `robots.txt`.
+  - Each page has exactly one H1. On the inner pages the keyword headline is the H1.
+  - Alt text is set on relevant photos; decorative images have empty alt text.
+  - Photos are WebP (24 MB down to 2 MB), and internal links use trailing slashes.
+- **Imagery:** several photos are generic stock that doesn't match the business (a car factory, a wind-turbine office, abstract business graphics). The client's own photo shoot (about 60 images) should replace them.
